@@ -22,7 +22,6 @@ main().catch(console.error);
 async function main() {
 	console.log(`Load testing http://localhost:${HTTP_PORT}...`);
 
-	let x = 0
 	while (true) {
 		x++
 		process.stdout.write(`Sending ${MAX_CHILDREN} requests...`);
@@ -44,9 +43,6 @@ async function main() {
 			});
 		});
 
-		if(x > 20) {
-			foo()
-		}
 		responses = await Promise.all(responses);
 
 		if (responses.every(Boolean)) {
